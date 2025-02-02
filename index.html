@@ -1,1 +1,68 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Environment from the below Dropdown</title>
+<style>
+        .container 
+		{
+            display: flex;
+            align-items: center;		
+			color: #333;
+			text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        h2 
+		{
+            margin: 0;
+            margin-right: 5px;
+        }
+        select {
+            padding: 5px;
+        }
+		#imageDisplay {
+            margin-top: 0;
+        }
+        #imageDisplay img {
+            max-width: 95%;
+            height: auto;
+            display: none;
+        }
+</style>
+</head>
+<body>
+    <h3>Integrations Status in Non-Prod Environment</h3>
+    <select id="imageDropdown" onchange="displayImage()">
+        <option value="">Select the Environment</option>
+		 <optgroup label="Base">
+        <option value="Merge">MergeDev</option>
+		</optgroup>
+		<optgroup label=" Dev">
+        <option value="Dev">Dev</option>
+		</optgroup>
+    </select>
+
+    <div id="imageDisplay">
+        <img id="Merge" src="C:/Users/Merge.gif" alt="Image 1">
+        <img id="Dev" src="C:/Users/Dev.jpg" alt="Image 2">
+    </div>
+
+    <script>
+        function displayImage() {
+            // Hide all images
+            const images = document.querySelectorAll('#imageDisplay img');
+            images.forEach(img => img.style.display = 'none');
+
+            // Get the selected value
+            const selectedValue = document.getElementById('imageDropdown').value;
+
+            // Display the selected image
+            if (selectedValue) {
+                document.getElementById(selectedValue).style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
+
